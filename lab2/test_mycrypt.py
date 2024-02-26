@@ -19,6 +19,8 @@ Like ROT-encoding encoding is also its reverse decoding. Meaning encode(encode(t
 
 Encoding should take the same amount of time for all valid inputs
 
+Encoded string max length is 1000
+
 https://en.wikipedia.org/wiki/ROT13
 https://www.man7.org/linux/man-pages/man1/tr.1.html
 '''
