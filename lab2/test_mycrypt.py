@@ -72,8 +72,8 @@ def test_timing():
 
     Hint: pad your string to max length and only return wanted length
     '''
-    timing1 = min(timeit.repeat('mycrypt.encode("a")',
-                                'import mycrypt', repeat=3, number=30))
-    timing2 = min(timeit.repeat('mycrypt.encode("a"*1000)',
-                                'import mycrypt', repeat=3, number=30))
-    assert 0.95 * timing2 < timing1 < 1.05 * timing2
+    fastest = min(timeit.repeat('mycrypt.encode("a")',
+                                'import mycrypt', repeat=15, number=30))
+    slowest = max(timeit.repeat('mycrypt.encode("a"*1000)',
+                                'import mycrypt', repeat=15, number=30))
+    assert 0.95 * fastest < slowest < 1.05 * fastest
