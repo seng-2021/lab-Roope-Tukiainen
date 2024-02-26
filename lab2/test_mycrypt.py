@@ -15,6 +15,7 @@ linux tr format:
 
 If characters outside tr format are used as input or string is longer than 1000 characters
 raise ValueError.
+If arguments is not type of str then raise TypeError
 
 Like ROT-encoding encoding is also its reverse decoding. Meaning encode(encode(text)) = text
 
