@@ -6,9 +6,10 @@ def encode(s):
     valid_chars = set
     (
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
-        "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", 
-        "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7",
-        "8", "9", "!", '"', "#", "€", "%", "&", "/", "(", ")", "=", "'"
+        "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+        "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6",
+        "7", "8", "9", "!", '"', "#", "€", "%", "&", "/", "(",
+        ")", "="
     )
     origlen = len(s)
     crypted = ""
@@ -33,5 +34,6 @@ def encode(s):
     return crypted
 
 def decode(s):
+    # By specification decode is just encoding.
     return encode(s)
 
