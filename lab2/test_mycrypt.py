@@ -35,7 +35,7 @@ import mycrypt
     ("abc123", 'NOP!"#'),
     ("4", u'€'),
     ("", ""),
-    ("AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789=!\"#€%&/()", "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM=!\"#€%&/()0123456789")
+    ('AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789=!"#€%&/()', 'nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM=!"#€%&/()0123456789')
 ])
 def test_encode(test_input, expected):
     '''Verify that strings given above match the expected results'''
@@ -43,7 +43,7 @@ def test_encode(test_input, expected):
 
 
 @pytest.mark.parametrize("test_input", [
-    '123', '!"#','abc'])
+    '123', '!"#','abc', 'nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM=!"#€%&/()0123456789'])
 def test_encode_decode(test_input):
     '''Verify that decoding an encoded string returns original string'''
     assert(mycrypt.decode(mycrypt.encode(test_input))) == test_input
