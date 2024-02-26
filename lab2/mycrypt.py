@@ -1,6 +1,9 @@
 import codecs
 
 def encode(s):
+    """
+    Encodes given string by specifications in test_mycrypt.py
+    """
     if not isinstance(s,str):
         raise TypeError
     valid_chars = {
@@ -36,6 +39,9 @@ def encode(s):
     return crypted[0:origlen]
 
 def decode(s):
+    """
+    Decodes given string like in specifications test_mycrypt.py
+    """
     # By specification decode is just encoding.
     return encode(s)
 

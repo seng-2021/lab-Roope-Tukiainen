@@ -13,7 +13,8 @@ Symbols (=!"#€%&/()) -> (0-9)
 linux tr format:
     tr 'A-Za-z0-9=!"#€%&/()' 'n-za-mN-ZA-M=!"#€%&/()0-9'
 
-If characters outside tr format are used as input or string is longer than 1000 characters, raise ValueError.
+If characters outside tr format are used as input or string is longer than 1000 characters
+raise ValueError.
 
 Like ROT-encoding encoding is also its reverse decoding. Meaning encode(encode(text)) = text
 
@@ -37,7 +38,8 @@ import mycrypt
     ("abc123", 'NOP!"#'),
     ("4", u'€'),
     ("", ""),
-    ('AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789=!"#€%&/()', 'nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM=!"#€%&/()0123456789')
+    ('AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789=!"#€%&/()',
+    'nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM=!"#€%&/()0123456789')
 ])
 def test_encode(test_input, expected):
     '''Verify that strings given above match the expected results'''
@@ -77,7 +79,7 @@ def test_timing():
                                 'import mycrypt', repeat=5, number=60))
     slowest = max(timeit.repeat('mycrypt.encode("a"*1000)',
                                 'import mycrypt', repeat=5, number=60))
-    assert 0.95 * fastest < slowest and slowest < 1.05 * fastest
+    assert 0.95 * fastest < slowest < 1.05 * fastest
 
 @pytest.mark.parametrize("invalid_input", ["L"*1001])
 def test_max_length(invalid_input):
