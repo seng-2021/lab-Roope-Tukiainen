@@ -2,13 +2,25 @@
 # -*- coding: utf-8
 
 '''
-Unit tests for mycrypt function. Basically ROT13, but also
-capitalize or uncapitalize, and for numbers, replace with shifted
-versions.
+Unit tests for mycrypt function. Inspired by ROT13.
+Capitalized letters -> Uncapitalized letters
+Uncapitalized letters -> Capitalized letters
+(Letter1-Letter2) means all letters from letter1 to letter2 in american alphabetical order.
+(0-9) means all whole numbers between 0 and 9.
+Numbers (0-9) -> (=!"#€%&/())
+Symbols (=!"#€%&/()) -> (0-9)
 
-tr 'A-Za-z0-9=!"#€%&/()' 'n-za-mN-ZA-M=!"#€%&/()0-9'
+linux tr format:
+    tr 'A-Za-z0-9=!"#€%&/()' 'n-za-mN-ZA-M=!"#€%&/()0-9'
 
-If characters outside allowed ones are used as input, raise ValueError.
+If characters outside tr format are used as input, raise ValueError.
+
+Like ROT-encoding encoding is also its reverse decoding. Meaning encode(encode(text)) = text
+
+Encoding should take the same amount of time for all inputs
+
+https://en.wikipedia.org/wiki/ROT13
+https://www.man7.org/linux/man-pages/man1/tr.1.html
 '''
 
 import timeit
